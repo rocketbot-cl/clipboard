@@ -31,6 +31,7 @@ sys.path.append(cur_path)
 print(cur_path)
 import win32clipboard
 import win32con
+from time import sleep
 
 """
     Obtengo el modulo que fueron invocados
@@ -75,13 +76,23 @@ if module == "copyclip":
 if module == "pasteclip":
     var_ = GetParams('var_')
 
+    try:
+        def paste_win32():
+            try:
+                win32clipboard.OpenClipboard()
+                text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
+                win32clipboard.CloseClipboard()
+            except:
+                sleep(5)
+                win32clipboard.OpenClipboard()
+                text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
+                win32clipboard.CloseClipboard()
+            return text
 
-    def paste_win32():
-        win32clipboard.OpenClipboard()
-        text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
-        win32clipboard.CloseClipboard()
-        return text
 
-    text_ = paste_win32()
-    SetVar(var_,text_)
+        text_ = paste_win32()
+        SetVar(var_, text_)
+    except Exception as e:
+        PrintException()
+        raise e
 
