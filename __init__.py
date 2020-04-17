@@ -57,8 +57,6 @@ global win32con
 """
 if module == "copyclip":
 
-
-
     try:
         var_ = GetParams('var_')
         print(var_)
@@ -74,21 +72,45 @@ if module == "copyclip":
 
 if module == "pasteclip":
     var_ = GetParams('var_')
-
+    text_ = None
     try:
         def paste_win32():
-            win32clipboard.OpenClipboard()
-            text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
-            win32clipboard.CloseClipboard()
+            try:
+                win32clipboard.OpenClipboard()
+                text = win32clipboard.GetClipboardData(win32con.CF_OEMTEXT)
+                print(text)
+                text = text.decode()
+                win32clipboard.CloseClipboard()
+
+            except:
+                try:
+                    win32clipboard.OpenClipboard()
+                    text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
+                    print(text)
+                    text = text.decode()
+                    win32clipboard.CloseClipboard()
+                except:
+                    try:
+                        win32clipboard.OpenClipboard()
+                        text = win32clipboard.GetClipboardData(win32con.CF_DSPTEXT)
+                        print(text)
+                        text = text.decode()
+                        win32clipboard.CloseClipboard()
+                    except TypeError as error:
+                        print(error)
+                        text = None
             return text
+
 
         try:
             text_ = paste_win32()
-        except:
+        except Exception:
             PrintException()
             text_ = paste_win32()
+        finally:
+            if text_:
+                SetVar(var_, text_)
 
-        SetVar(var_, text_)
     except Exception as e:
         PrintException()
         raise e
