@@ -23,6 +23,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
     pip install <package> -t .
 
 """
+from subprocess import Popen, PIPE
 import os
 import sys
 base_path = tmp_global_obj["basepath"]
@@ -67,6 +68,22 @@ if module == "copyclip":
         win32clipboard.CloseClipboard()
 
     except Exception as e:
+        PrintException()
+        raise e
+
+if module == "getClipboard":
+    var_ =  GetParams("var_")
+
+    try:
+        env = os.environ.copy()
+        popper = base_path + 'modules' + os.sep + 'clipboard' + os.sep + "bin" + os.sep + "ClipboardGet.exe"
+        con = Popen(popper, env=env, shell=True, stdout=PIPE, stderr=PIPE)
+        a = con.communicate()
+
+        SetVar(var_, a[0].decode())
+
+    except Exception as e:
+        print("\x1B["+ "31;40m" + str(e) + "\x1B[" + "0m")
         PrintException()
         raise e
 
