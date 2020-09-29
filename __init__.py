@@ -26,6 +26,7 @@ Para instalar librerias se debe ingresar por terminal a la carpeta "libs"
 from subprocess import Popen, PIPE
 import os
 import sys
+
 base_path = tmp_global_obj["basepath"]
 cur_path = base_path + 'modules' + os.sep + 'clipboard' + os.sep + 'libs' + os.sep
 sys.path.append(cur_path)
@@ -68,7 +69,7 @@ if module == "copyclip":
 
     else:
         try:
-
+            import win32con
             win32clipboard.OpenClipboard()
             win32clipboard.EmptyClipboard()
             win32clipboard.SetClipboardData(win32con.CF_UNICODETEXT, var_)
