@@ -95,44 +95,42 @@ if module == "getClipboard":
         import win32con
 
         try:
-            try:
-                env = os.environ.copy()
-                popper = base_path + 'modules' + os.sep + 'clipboard' + os.sep + "bin" + os.sep + "ClipboardGet.exe"
+
+            env = os.environ.copy()
+            popper = base_path + 'modules' + os.sep + 'clipboard' + os.sep + "bin" + os.sep + "ClipboardGet.exe"
+            if os.path.exists(popper):
                 con = Popen(popper, env=env, shell=True, stdout=PIPE, stderr=PIPE)
                 a = con.communicate()
 
-                SetVar(var_, a[0].decode())
+                SetVar(var_, a[0].decode('latin-1'))
+            else:
+                raise Exception("No bin in module")
 
-            except Exception as e:
-                print("\x1B[" + "31;40m" + str(e) + "\x1B[" + "0m")
-                PrintException()
-                raise e
         except:
+            PrintException()
             text_ = None
             try:
                 def paste_win32():
                     try:
                         win32clipboard.OpenClipboard()
                         text = win32clipboard.GetClipboardData(win32con.CF_OEMTEXT)
-                        print(text)
-                        text = text.decode()
+                        text = text.decode('utf-8')
                         win32clipboard.CloseClipboard()
                     except:
                         try:
                             win32clipboard.OpenClipboard()
                             text = win32clipboard.GetClipboardData(win32con.CF_TEXT)
-                            print(text)
-                            text = text.decode()
+                            text = text.decode('latin-1')
                             win32clipboard.CloseClipboard()
                         except:
                             try:
                                 win32clipboard.OpenClipboard()
                                 text = win32clipboard.GetClipboardData(win32con.CF_DSPTEXT)
-                                print(text)
-                                text = text.decode()
+                                text = text.decode('latin-1')
+
                                 win32clipboard.CloseClipboard()
                             except TypeError as error:
-                                print(error)
+                                win32clipboard.CloseClipboard()
                                 text = None
                     return text
                 try:
@@ -140,11 +138,13 @@ if module == "getClipboard":
                 except Exception:
                     PrintException()
                     text_ = paste_win32()
+                    win32clipboard.CloseClipboard()
                 finally:
                     if text_:
                         SetVar(var_, text_)
 
             except Exception as e:
+                win32clipboard.CloseClipboard()
                 PrintException()
                 raise e
 
