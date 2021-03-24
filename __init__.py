@@ -44,17 +44,6 @@ module = GetParams("module")
 global win32clipboard
 global win32con
 
-# def copy_win32(text):
-#     win32clipboard.OpenClipboard()
-#     win32clipboard.EmptyClipboard()
-#     win32clipboard.SetClipboardData(win32con.CF_UNICODETEXT, text)
-#     win32clipboard.CloseClipboard()
-#
-# def paste_win32():
-#     win32clipboard.OpenClipboard()
-#     text = win32clipboard.GetClipboardData(win32con.CF_UNICODETEXT)
-#     win32clipboard.CloseClipboard()
-#     return text
 
 """
     Resuelvo catpcha tipo reCaptchav2
@@ -148,4 +137,26 @@ if module == "getClipboard":
                 PrintException()
                 raise e
 
+if module == "copyImage":
+    from io import BytesIO
+    import win32clipboard
+    from PIL import Image
+
+
+    def send_to_clipboard(clip_type, data):
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardData(clip_type, data)
+        win32clipboard.CloseClipboard()
+
+
+    filepath = GetParams("path")
+    image = Image.open(filepath)
+
+    output = BytesIO()
+    image.convert("RGB").save(output, "BMP")
+    data = output.getvalue()[14:]
+    output.close()
+
+    send_to_clipboard(win32clipboard.CF_DIB, data)
 
