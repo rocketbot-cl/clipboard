@@ -3,6 +3,11 @@ Copy from a variable to the clipboard and from the clipboard to a variable
 
 ![alt text](https://raw.githubusercontent.com/rocketbot-cl/clipboard/master/example/portapapeles.png)
 
+
+## Updates
+### 03-Apr-2021
+- Save Image: Save an image to path from clipbaord
+
 <h2>Dependencies</h2>
 
 <ul>

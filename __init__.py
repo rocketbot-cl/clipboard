@@ -137,26 +137,37 @@ if module == "getClipboard":
                 PrintException()
                 raise e
 
-if module == "copyImage":
-    from io import BytesIO
-    import win32clipboard
-    from PIL import Image
+try:
+    if module == "copyImage":
+        from io import BytesIO
+        import win32clipboard
+        from PIL import Image
 
 
-    def send_to_clipboard(clip_type, data):
-        win32clipboard.OpenClipboard()
-        win32clipboard.EmptyClipboard()
-        win32clipboard.SetClipboardData(clip_type, data)
-        win32clipboard.CloseClipboard()
+        def send_to_clipboard(clip_type, data):
+            win32clipboard.OpenClipboard()
+            win32clipboard.EmptyClipboard()
+            win32clipboard.SetClipboardData(clip_type, data)
+            win32clipboard.CloseClipboard()
 
 
-    filepath = GetParams("path")
-    image = Image.open(filepath)
+        filepath = GetParams("path")
+        image = Image.open(filepath)
 
-    output = BytesIO()
-    image.convert("RGB").save(output, "BMP")
-    data = output.getvalue()[14:]
-    output.close()
+        output = BytesIO()
+        image.convert("RGB").save(output, "BMP")
+        data = output.getvalue()[14:]
+        output.close()
 
-    send_to_clipboard(win32clipboard.CF_DIB, data)
+        send_to_clipboard(win32clipboard.CF_DIB, data)
 
+    if module == "saveImage":
+        from PIL import ImageGrab
+
+        path = GetParams("path")
+        im = ImageGrab.grabclipboard()
+        im.save(path,'PNG')
+
+except Exception as e:
+    PrintException()
+    raise e
