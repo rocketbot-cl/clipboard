@@ -1,3 +1,3 @@
 ## clipboard
 
- view the documentation at: https://github.com/rocketbot-cl/SAPB1/blob/master/example/Manual_clipboard.pdf
+ view the documentation at: https://github.com/rocketbot-cl/clipboard/blob/master/example/Manual_clipboard.pdf
