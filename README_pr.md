@@ -1,27 +1,27 @@
-# Clipboard
+# Prancheta
   
 Copiar y pegar del portapapeles  
 
-## How to install this module
+## Como instalar este módulo
   
-__Download__ and __install__ the content in 'modules' folder in Rocketbot path  
+__Baixe__ e __instale__ o conteúdo na pasta 'modules' no caminho do Rocketbot  
 
 
 
 ## Overview
 
 
-1. Copy to clipboard  
-Copy variable value to clipboard
+1. Copiar para prancheta  
+Copia o valor de uma variável para prancheta
 
-2. Get clipboard data  
-Get data of clipboard
+2. Obter prancheta  
+Obtém os dados da prancheta
 
-3. Add image to clipboard  
-Copy an image to clipboard from path
+3. Adicionar imagem à prancheta  
+Copie uma imagem para a prancheta desde um caminho
 
-4. Save image from clipboard  
-Save an image to path from clipbaord  
+4. Salvar imagen  
+Salve uma imagem para uma rota da área de transferência  
 
 
 
