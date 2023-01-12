@@ -25,6 +25,11 @@ Obtiene los datos del portapapeles
 | --- | --- | --- |
 |Guardar en Variable||Variable|
 
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
+
 ### Agregar imagen al portapapeles
   
 Copia una imagen al portapapeles desde una ruta
