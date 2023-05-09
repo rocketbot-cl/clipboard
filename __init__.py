@@ -61,7 +61,7 @@ if module == "copyclip":
             import win32con
             win32clipboard.OpenClipboard()
             win32clipboard.EmptyClipboard()
-            win32clipboard.SetClipboardData(win32con.CF_UNICODETEXT, var_)
+            win32clipboard.SetClipboardText(var_, win32con.CF_TEXT)
             win32clipboard.CloseClipboard()
 
         except Exception as e:
