@@ -1,8 +1,13 @@
 {
   "author": "Marcela Vergara - Jose Fernandez ",
-  "description": "Copiar y pegar del portapapeles",
+  "description": "This module allows you to interact with the clipboard",
+  "description_lang": {
+    "es": "Este módulo te permite interactuar con el portapapeles",
+    "en": "This module allows you to interact with the clipboard",
+    "pr": "Este módulo permite interagir com a prancheta"
+  },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": false,
@@ -229,6 +234,42 @@
       "windows": true,
       "mac": true,
       "docker": true
-    }
+    },
+    {
+        "en": {
+          "title": "Clean clipboard",
+          "description": "Clean the value of the most recent clipboard",
+          "title_options": "Select Option",
+          "options": null
+        },
+        "es": {
+          "title": "Limpiar portapapeles",
+          "description": "Limpia el valor del portapapeles más reciente",
+          "title_options": "Seleccione una opción",
+          "options": null
+        },
+        "pr": {
+          "title": "Limpar área de transferência",
+          "description": "Limpe o valor da área de transferência mais recente",
+          "title_options": "Selecione uma opção",
+          "options": null
+        },
+        "form": {
+          "css": "modal-lg",
+          "inputs": []
+        },
+        "video_youtube": "",
+        "icon": "data:image/png;base64,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",
+        "module": "cleanclipboard",
+        "module_name": "clipboard",
+        "visible": true,
+        "options": false,
+        "father": "module",
+        "group": "scripts",
+        "linux": true,
+        "windows": true,
+        "mac": true,
+        "docker": true
+      }
   ]
 }

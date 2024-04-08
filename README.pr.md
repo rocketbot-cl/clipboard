@@ -1,0 +1,46 @@
+# Prancheta
+  
+Este módulo permite interagir com a prancheta  
+
+*Read this in other languages: [English](README.md), [Português](README.pr.md), [Español](README.es.md)*
+
+## Como instalar este módulo
+  
+Para instalar o módulo no Rocketbot Studio, pode ser feito de duas formas:
+1. Manual: __Baixe__ o arquivo .zip e descompacte-o na pasta módulos. O nome da pasta deve ser o mesmo do módulo e dentro dela devem ter os seguintes arquivos e pastas: \__init__.py, package.json, docs, example e libs. Se você tiver o aplicativo aberto, atualize seu navegador para poder usar o novo módulo.
+2. Automático: Ao entrar no Rocketbot Studio na margem direita você encontrará a seção **Addons**, selecione **Install Mods**, procure o módulo desejado e aperte instalar.  
+
+
+## Overview
+
+
+1. Copiar para prancheta  
+Copia o valor de uma variável para prancheta
+
+2. Obter prancheta  
+Obtém os dados da prancheta
+
+3. Adicionar imagem à prancheta  
+Copie uma imagem para a prancheta desde um caminho
+
+4. Salvar imagen  
+Salve uma imagem para uma rota da área de transferência
+
+5. Limpar área de transferência  
+Limpe o valor da área de transferência mais recente  
+
+
+
+
+----
+### OS
+
+- windows
+- docker
+
+### Dependencies
+- [**pywin32**](https://pypi.org/project/pywin32/)
+### License
+  
+![MIT](https://camo.githubusercontent.com/107590fac8cbd65071396bb4d04040f76cde5bde/687474703a2f2f696d672e736869656c64732e696f2f3a6c6963656e73652d6d69742d626c75652e7376673f7374796c653d666c61742d737175617265)  
+[MIT](http://opensource.org/licenses/mit-license.ph)

@@ -168,6 +168,20 @@ try:
         im = ImageGrab.grabclipboard()
         im.save(path,'PNG')
 
+    if module == "cleanclipboard":
+        if platform_.lower() == 'darwin':
+            os.system("echo '' | pbcopy")
+        else:
+            try:
+                import win32clipboard
+                import win32con
+                win32clipboard.OpenClipboard()
+                win32clipboard.EmptyClipboard()
+                win32clipboard.CloseClipboard()
+            except Exception as e:
+                PrintException()
+                raise e
+
 except Exception as e:
     PrintException()
     raise e
