@@ -50,8 +50,12 @@ global win32con
 """
 if module == "copyclip":
 
-    var_ = GetParams('var_')
-    #print(var_)
+    var_ = GetParams('var_') #type:ignore
+    path = GetParams("path") #type:ignore
+    
+    if path:
+        with open(path, 'r') as f:
+            var_ = f.read()
 
     if platform_.lower() == 'darwin':
         os.system("echo " + var_ + " | pbcopy")
@@ -70,7 +74,7 @@ if module == "copyclip":
 
 if module == "getClipboard":
     var_ = GetParams("var_")
-
+    
     if platform_.lower() == 'darwin':
 
         from AppKit import NSPasteboard, NSStringPboardType
