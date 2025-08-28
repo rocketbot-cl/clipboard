@@ -71,9 +71,14 @@
             "type": "file_select",
             "placeholder": "document.txt",
             "title": {
-              "es": "Ruta del archivo txt a enviar al portapapeles (opcional):",
-              "en": "txt path to send to clipboard (optional):",
-              "pr": "Caminho do arquivo txt para enviar para o portapapéis (opcional):"
+              "es": "Ruta del archivo txt a enviar al portapapeles:",
+              "en": "Txt path to send to clipboard:",
+              "pr": "Caminho do arquivo txt para enviar para o portapapéis:"
+            },
+            "description": {
+              "es": "Opcional. Copia al portapapeles lo que contenga el .txt",
+              "en": "Optional. Copy to clipboard what is contained in the .txt",
+              "pr": "Opcional. Copie para a área de transferência o que está contido no .txt"
             },
             "id": "path",
             "css": "col-md-12"
