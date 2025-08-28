@@ -7,7 +7,7 @@
     "pr": "Este módulo permite interagir com a prancheta"
   },
   "disclaimer": "THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY APPLICABLE LAW. EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION.",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "license": "MIT",
   "homepage": "http://rocketbot.com",
   "linux": false,
@@ -65,6 +65,22 @@
               "pr": "Variável com dados para copiar"
             },
             "id": "var_",
+            "css": "col-md-12"
+          },
+          {
+            "type": "file_select",
+            "placeholder": "document.txt",
+            "title": {
+              "es": "Ruta del archivo txt a enviar al portapapeles:",
+              "en": "Txt path to send to clipboard:",
+              "pr": "Caminho do arquivo txt para enviar para o portapapéis:"
+            },
+            "description": {
+              "es": "Opcional. Copia al portapapeles lo que contenga el .txt",
+              "en": "Optional. Copy to clipboard what is contained in the .txt",
+              "pr": "Opcional. Copie para a área de transferência o que está contido no .txt"
+            },
+            "id": "path",
             "css": "col-md-12"
           }
         ]
